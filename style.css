@@ -1,0 +1,401 @@
+/* Global Reset & Variables */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+:root {
+    --primary-color: #00adb5;
+    --dark-bg: #222831;
+    --card-bg: rgba(57, 62, 70, 0.85);
+    --text-light: #eceff1;
+    --text-muted: #b0bec5;
+}
+
+body {
+    background-image: linear-gradient(rgba(34, 40, 49, 0.85), rgba(34, 40, 49, 0.9)), url('https://wallpaperaccess.com/full/183868.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    color: var(--text-light);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Navbar Styling */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 10%;
+    background-color: rgba(34, 40, 49, 0.95);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    border-bottom: 2px solid var(--primary-color);
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--primary-color);
+    letter-spacing: 1px;
+}
+.profile-pic {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #00cfe8;
+    box-shadow: 0 0 15px rgba(0, 207, 232, 0.4);
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+}
+
+.nav-links a {
+    color: var(--text-light);
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: 500;
+    transition: color 0.3s ease;
+    position: relative;
+    padding-bottom: 5px;
+}
+
+.nav-links a:hover, .nav-links a.active {
+    color: var(--primary-color);
+}
+
+/* Active navigation line effect */
+.nav-links a.active::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: var(--primary-color);
+}
+
+/* Main Content and Page Sections */
+main {
+    flex: 1;
+    margin-top: 80px; /* Offset for fixed navbar */
+    padding: 2rem 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.portfolio-section {
+    width: 100%;
+    max-width: 900px;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* Home Section */
+.hero-content h1 {
+    font-size: 1.8rem;
+    color: var(--text-muted);
+    font-weight: 400;
+}
+
+.hero-content h2 {
+    font-size: 3.5rem;
+    margin: 0.5rem 0;
+}
+
+.highlight {
+    color: var(--primary-color);
+}
+
+.subtitle {
+    font-size: 1.4rem;
+    color: var(--text-muted);
+    margin-bottom: 1.5rem;
+}
+
+.description {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin-bottom: 2rem;
+    color: var(--text-light);
+}
+
+.cta-btn {
+    display: inline-block;
+    padding: 0.8rem 2rem;
+    background-color: var(--primary-color);
+    color: var(--dark-bg);
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: transform 0.2s ease, background-color 0.3s ease;
+}
+
+.cta-btn:hover {
+    transform: translateY(-3px);
+    background-color: #00fff2;
+}
+
+/* Projects Section */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.project-card {
+    background-color: var(--card-bg);
+    padding: 2rem;
+    border-radius: 8px;
+    border-left: 4px solid var(--primary-color);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    transition: transform 0.3s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+}
+
+.project-card h3 {
+    margin-bottom: 0.5rem;
+    color: var(--primary-color);
+}
+
+.project-tag {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+    letter-spacing: 1px;
+}
+
+.project-card p {
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+}
+
+.project-btn {
+    padding: 0.5rem 1.2rem;
+    background: transparent;
+    border: 2px solid var(--primary-color);
+    color: var(--primary-color);
+    cursor: pointer;
+    border-radius: 4px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.project-btn:hover:not(.disabled) {
+    background: var(--primary-color);
+    color: var(--dark-bg);
+}
+
+.project-card.placeholder {
+    border-left-color: var(--text-muted);
+    opacity: 0.7;
+}
+
+.project-btn.disabled {
+    border-color: var(--text-muted);
+    color: var(--text-muted);
+    cursor: not-allowed;
+}
+
+/* Contact Section Form */
+.contact-form {
+    margin-top: 2rem;
+    background-color: var(--card-bg);
+    padding: 2.5rem;
+    border-radius: 8px;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: var(--primary-color);
+}
+
+.form-group input, .form-group textarea {
+    width: 100%;
+    padding: 0.75rem;
+    background-color: rgba(34, 40, 49, 0.7);
+    border: 1px solid var(--text-muted);
+    border-radius: 4px;
+    color: white;
+    font-size: 1rem;
+}
+
+.form-group input:focus, .form-group textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+}
+
+.submit-btn {
+    width: 100%;
+    padding: 0.75rem;
+    background-color: var(--primary-color);
+    color: var(--dark-bg);
+    border: none;
+    border-radius: 4px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.submit-btn:hover {
+    background-color: #00fff2;
+}
+
+.form-response {
+    margin-top: 1rem;
+    padding: 1rem;
+    border-radius: 4px;
+    text-align: center;
+}
+
+.form-response.success {
+    background-color: rgba(46, 125, 50, 0.3);
+    border: 1px solid #2e7d32;
+}
+
+/* Footer Section */
+footer {
+    text-align: center;
+    padding: 1.5rem;
+    background-color: rgba(34, 40, 49, 0.95);
+    border-top: 1px solid rgba(176, 190, 197, 0.1);
+    font-size: 0.9rem;
+    color: var(--text-muted);
+}
+
+/* Keyframe Animations */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive design adjustments */
+@media (max-width: 768px) {
+    .navbar { padding: 1rem 5%; }
+    main { padding: 2rem 5%; }
+    .hero-content h2 { font-size: 2.5rem; }
+}
+/* WhatsApp Button */
+/* Contact Section Split Layout */
+.contact-container {
+    display: flex;
+    gap: 2rem;
+    margin-top: 2rem;
+    align-items: flex-start;
+}
+
+.quick-contact, .form-container {
+    background-color: var(--card-bg);
+    padding: 2.5rem;
+    border-radius: 8px;
+    flex: 1;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+}
+
+.quick-contact h3, .form-container h3 {
+    margin-bottom: 1rem;
+    color: var(--primary-color);
+}
+
+.quick-contact p {
+    line-height: 1.6;
+    margin-bottom: 2rem;
+    color: var(--text-light);
+}
+
+/* WhatsApp Button Styling */
+.whatsapp-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+    padding: 0.75rem;
+    background-color: #25D366; /* WhatsApp Green */
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: bold;
+    border-radius: 4px;
+    transition: transform 0.2s ease, background-color 0.3s ease;
+}
+
+.whatsapp-btn:hover {
+    background-color: #20ba5a;
+    transform: translateY(-2px);
+}
+
+.whatsapp-icon {
+    font-size: 1.3rem;
+}
+
+/* Overriding old form styling for the split layout */
+.contact-form {
+    margin-top: 0;
+    padding: 0;
+    background-color: transparent;
+}
+
+/* Responsive adjustment for small screens */
+@media (max-width: 768px) {
+    .contact-container {
+        flex-direction: column;
+    }
+    .quick-contact, .form-container {
+        width: 100%;
+    }
+}
+
+/*OpportuNet Project */
+/* Styling for the new project anchor links */
+.project-link-btn {
+    display: inline-block;
+    padding: 0.5rem 1.2rem;
+    background: transparent;
+    border: 2px solid var(--primary-color);
+    color: var(--primary-color);
+    text-decoration: none;
+    cursor: pointer;
+    border-radius: 4px;
+    font-weight: bold;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+}
+
+.project-link-btn:hover:not(.disabled) {
+    background: var(--primary-color);
+    color: var(--dark-bg);
+}
+
+.project-link-btn.disabled {
+    border-color: var(--text-muted);
+    color: var(--text-muted);
+    cursor: not-allowed;
+}

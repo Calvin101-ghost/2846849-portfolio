@@ -4,35 +4,106 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Engedzani's Portfolio</title>
-    <style>
-      body{
-        background-image: url(https://wallpaperaccess.com/full/183868.jpg);
-      }
-    </style>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 </head>
 <body>
-    <header>
-      <h1>Welcom to Engedzani's portfolio</h1>
-    </header>
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/qTyKQhBcUYk?si=tQbUg0OrpzcGqY2X" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-    <nav>
-      <ul>
-        <li><a href="#"> Home</a></li>
-        <li><a href="#"> Projects</a></li>
-        <li><a href="#"> Contact</a></li>
-      </ul> 
+
+    <nav class="navbar">
+        <div class="logo">
+            <img src="Me.jpeg" alt="Profile Picture" class="profile-pic">
+        </div>
+        <ul class="nav-links">
+            <li><a href="#home" class="nav-item active">Home</a></li>
+            <li><a href="#projects" class="nav-item">Projects</a></li>
+            <li><a href="#contact" class="nav-item">Contact</a></li>
+        </ul> 
     </nav>
+
     <main>
-      <section>
-        <h2>About Me</h2>
-        <p>Hi, my name is Mutambedzo Engedzani.<br>I am a 3rd year CS students at Wits And Welcome to my Portfolio,enjoy!</p> 
-        <p>I am a currently learning web development And also enthusiastic about CyberSecurity.</p>
-      </section>
-      <article>
-        <h3>Latest Project</h3>
-        <p>A movie recommendation website ,for all the movie lovers</p>
-      </article>
-      <footer>© 2026 2846849 | Built with Semantic HTML</footer>
+        <section id="home" class="portfolio-section active-section">
+            <div class="hero-content">
+                <h1>Welcome to my Portfolio</h1>
+                <h2>Hi, I'm <span class="highlight">Mutambedzo Engedzani</span></h2>
+                <p class="subtitle">3rd Year CS Student at Wits</p>
+                <p class="description">
+                    I am currently diving deep into web development and possess a strong enthusiasm for 
+                    <strong>CyberSecurity, Cloud Computing, Data Science, and FinTech</strong>. Enjoy exploring my work!
+                </p>
+                <a href="#projects" class="cta-btn" id="explore-btn">View My Work</a>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="portfolio-section hidden">
+            <h2>Latest Projects</h2>
+            <div class="projects-grid">
+                
+                <!-- OportuNet Card -->
+                <div class="project-card">
+                    <h3>OportuNet</h3>
+                    <p class="project-tag">Web Application</p>
+                    <p>A Collaborative South African Skills Development Portal designed to connect individuals with growth opportunities.</p>
+                    <!-- TARGET YOUR LIVE SITE OR GITHUB URL HERE -->
+                    <a href="https://oportu-net.vercel.app" target="_blank" class="project-link-btn">Visit Website</a>
+                </div>
+                
+                <!-- Future project placeholder -->
+                <div class="project-card placeholder">
+                    <h3>Upcoming Project</h3>
+                    <p class="project-tag">CyberSecurity / Cloud</p>
+                    <p>Stay tuned! A new technical project is currently under development.</p>
+                    <a class="project-link-btn disabled">Coming Soon</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="portfolio-section hidden">
+            <h2>Get In Touch</h2>
+            <p>Have a question or want to collaborate on a project? Reach out using either method below!</p>
+            
+            <div class="contact-container">
+                <!-- Left Side: Quick WhatsApp Link -->
+                <div class="quick-contact">
+                    <h3>Instant Chat</h3>
+                    <p>Prefer instant messaging? Click below to text me directly on WhatsApp.</p>
+                    <!-- Replace 27XXXXXXXXX with your actual phone number, including country code, no spaces or + sign -->
+                    <a href="https://wa.me/27636747976?text=Hi%20Engedzani,%20I%20saw%20your%20portfolio%20and..." 
+                      target="_blank" 
+                      class="whatsapp-btn">
+                      <span class="whatsapp-icon">💬</span> Chat on WhatsApp
+                    </a>
+                </div>
+
+                <!-- Right Side: EmailJS Form -->
+                <div class="form-container">
+                    <h3>Send an Email</h3>
+                    <form id="contact-form" class="contact-form">
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" required placeholder="Your Name">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" required placeholder="Your Email">
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" rows="5" required placeholder="Your Message..."></textarea>
+                        </div>
+                        <button type="submit" class="submit-btn">Send Email</button>
+                    </form>
+                    <div id="form-response" class="form-response hidden"></div>
+                </div>
+            </div>
+        </section>
     </main>
+
+    <footer>
+        <p>© 2026 Mutambedzo Engedzani | Built with Semantic HTML, CSS, & JavaScript</p>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
