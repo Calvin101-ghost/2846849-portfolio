@@ -51,10 +51,11 @@ document.addEventListener('DOMContentLoaded', () => {
             formResponse.classList.remove('hidden');
             formResponse.classList.add('success');
             // Inside your contactForm submit event listener in script.js:
-            emailjs.send("YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID", {
+            emailjs.send("service_223olsf", "template_af2fv1o", {
                 from_name: document.getElementById('name').value,
                 from_email: document.getElementById('email').value,
-                message: document.getElementById('message').value
+                message: document.getElementById('message').value,
+                date: new Date().toLocaleDateString()
             }).then(() => {
                 // This triggers the success message we already built!
                 formResponse.textContent = `Thank you! Your message has been sent.`;
