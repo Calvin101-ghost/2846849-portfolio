@@ -51,6 +51,7 @@ document.addEventListener('DOMContentLoaded', () => {
             formResponse.classList.remove('hidden');
             formResponse.classList.add('success');
             // Inside your contactForm submit event listener in script.js:
+            emailjs.init("fmqLCxnDZka_hqh4n"); // Replace with your actual EmailJS user ID
             emailjs.send("service_223olsf", "template_af2fv1o", {
                 from_name: document.getElementById('name').value,
                 from_email: document.getElementById('email').value,
