@@ -32,12 +32,12 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Connect the CTA "View My Work" button on the home page
-    if (exploreBtn) {
+    /*if (exploreBtn) {
         exploreBtn.addEventListener('click', (e) => {
             e.preventDefault();
             switchSection('#projects');
         });
-    }
+    }*/
 
     // Handle Contact Form Form Submission
     if (contactForm) {
